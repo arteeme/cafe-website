@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Контакты - Кафе "Аромат"</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Кафе "Аромат"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="contact.html">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <div class="page-header bg-light py-5">
+      <div class="container text-center">
+        <h1 class="display-4">Свяжитесь с нами</h1>
+        <p class="lead">Мы всегда рады услышать ваше мнение</p>
+      </div>
+    </div>
+
+    <!-- Контактная информация и форма -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Контактная информация -->
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <h2>Наши контакты</h2>
+            <p>Есть вопросы или предложения? Свяжитесь с нами любым удобным способом!</p>
+            
+            <div class="contact-info mt-4">
+              <div class="d-flex mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div>
+                  <h5>Адрес</h5>
+                  <p class="mb-0">г. Москва, ул. Примерная, д. 123</p>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div>
+                  <h5>Телефон</h5>
+                  <p class="mb-0">+7 (xxx) xxx-xx-xx</p>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div>
+                  <h5>Email</h5>
+                  <p class="mb-0">info@cafe-aromat.ru</p>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div>
+                  <h5>Режим работы</h5>
+                  <p class="mb-0">Пн-Пт: 10:00 - 22:00</p>
+                  <p class="mb-0">Сб-Вс: 11:00 - 23:00</p>
+                </div>
+              </div>
+            </div>
+            
+            <h4 class="mt-4 mb-3">Мы в социальных сетях:</h4>
+            <div class="social-links">
+              <a href="#" class="social-link me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-link me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-link me-2"><i class="bi bi-vk"></i></a>
+              <a href="#" class="social-link"><i class="bi bi-telegram"></i></a>
+            </div>
+          </div>
+          
+          <!-- Форма обратной связи -->
+          <div class="col-lg-7">
+            <div class="card contact-form-card">
+              <div class="card-body">
+                <h3 class="card-title mb-4">Напишите нам</h3>
+                <form>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="name" class="form-label">Ваше имя</label>
+                      <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="subject" class="form-label">Тема</label>
+                    <input type="text" class="form-control" id="subject" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Сообщение</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="privacy" required>
+                    <label class="form-check-label" for="privacy">Я согласен с <a href="#">политикой конфиденциальности</a></label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Карта -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Как нас найти</h2>
+        <div class="map-container">
+          <!-- Здесь будет карта (в реальном проекте встроить iframe с Google Maps или Яндекс.Карты) -->
+          <div class="map-placeholder">
+            <img src="images/map.jpg" alt="Карта расположения кафе Аромат" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Часто задаваемые вопросы -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Часто задаваемые вопросы</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                Нужно ли бронировать столик заранее?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Рекомендуем бронировать столик заранее, особенно в выходные дни и вечернее время. Это можно сделать по телефону или через форму на нашем сайте. В будние дни в обеденное время обычно есть свободные места.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                Есть ли у вас вегетарианские блюда?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Да, в нашем меню представлен широкий выбор вегетарианских блюд. Вы также можете попросить нашего шеф-повара адаптировать некоторые блюда под вегетарианские предпочтения.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                Можно ли у вас отметить день рождения или другое торжество?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Конечно! Мы предлагаем специальные условия для проведения торжеств и праздников. Свяжитесь с нами заранее, чтобы обсудить детали мероприятия и меню.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                Есть ли у вас доставка?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Да, мы осуществляем доставку блюд в пределах города. Минимальная сумма заказа - 1000 рублей. Заказать доставку можно по телефону или через наше мобильное приложение.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                Есть ли у вас Wi-Fi?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Да, в нашем кафе есть бесплатный Wi-Fi для всех посетителей. Пароль для подключения можно узнать у официанта.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Кафе "Аромат"</h5>
+            <p>Уютное место для встреч и отдыха</p>
+            <p><i class="bi bi-geo-alt"></i> Адрес: г. Москва, ул. Примерная, д. 123</p>
+            <p><i class="bi bi-telephone"></i> Телефон: +7 (xxx) xxx-xx-xx</p>
+            <p><i class="bi bi-envelope"></i> Email: info@cafe-aromat.ru</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Режим работы</h5>
+            <p>Понедельник - Пятница: 10:00 - 22:00</p>
+            <p>Суббота - Воскресенье: 11:00 - 23:00</p>
+          </div>
+          <div class="col-md-4">
+            <h5>Следите за нами</h5>
+            <div class="social-links">
+              <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-vk"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="text-center">
+          <p class="mb-0">&copy; 2023 Кафе "Аромат". Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html> 

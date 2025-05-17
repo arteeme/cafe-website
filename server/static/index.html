@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кафе "Аромат" - Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Кафе "Аромат"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Контакты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reservation">Бронирование</a>
+            </li>
+            <li class="nav-item" id="auth-links">
+              <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item dropdown" id="user-dropdown" style="display: none;">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> <span id="user-name">Пользователь</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/profile">Личный кабинет</a></li>
+                <li><a class="dropdown-item" href="/orders">История заказов</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="logout-button">Выйти</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="/cart">
+                <i class="bi bi-cart"></i>
+                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Главный баннер -->
+    <header class="main-banner text-white text-center py-5">
+      <div class="container">
+        <h1 class="display-3 fw-bold">Кафе "Аромат"</h1>
+        <p class="lead">Уютное место для встреч и наслаждения кулинарными шедеврами</p>
+        <div class="mt-4">
+          <a href="/menu" class="btn btn-primary btn-lg me-2">Посмотреть меню</a>
+          <a href="/reservation" class="btn btn-outline-light btn-lg">Забронировать столик</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Секция "Основные разделы" -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Возможности нашего сайта</h2>
+        <div class="row g-4">
+          <!-- Блок с меню -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body text-center">
+                <i class="bi bi-menu-button-wide text-primary" style="font-size: 3rem;"></i>
+                <h4 class="mt-3">Меню</h4>
+                <p>Ознакомьтесь с нашим разнообразным меню. Фильтрация по категориям, поиск и подробное описание каждого блюда.</p>
+                <a href="/menu" class="btn btn-sm btn-outline-primary mt-2">Перейти в меню</a>
+              </div>
+            </div>
+          </div>
+          <!-- Блок с корзиной -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body text-center">
+                <i class="bi bi-cart-check text-primary" style="font-size: 3rem;"></i>
+                <h4 class="mt-3">Заказ онлайн</h4>
+                <p>Оформите заказ с доставкой или на вынос. Удобная корзина, выбор способа оплаты и отслеживание статуса.</p>
+                <a href="/cart" class="btn btn-sm btn-outline-primary mt-2">Перейти в корзину</a>
+              </div>
+            </div>
+          </div>
+          <!-- Блок с личным кабинетом -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body text-center">
+                <i class="bi bi-person-badge text-primary" style="font-size: 3rem;"></i>
+                <h4 class="mt-3">Личный кабинет</h4>
+                <p>Управляйте профилем, просматривайте историю заказов, сохраняйте избранные блюда и адреса доставки.</p>
+                <a href="/login" class="btn btn-sm btn-outline-primary mt-2">Войти в кабинет</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Популярные блюда -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Наши популярные блюда</h2>
+        <p class="text-center text-muted mb-5">Попробуйте наши фирменные блюда, которые выбирают чаще всего</p>
+        
+        <div class="row" id="popular-items-container">
+          <!-- Здесь будут отображены популярные блюда (добавляются динамически) -->
+          <div class="col-12 text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Загрузка...</span>
+            </div>
+            <p>Загрузка популярных блюд...</p>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="/menu" class="btn btn-primary">Посмотреть все меню</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок с фото и информацией о кафе -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="images/cafe-interior.jpg" alt="Интерьер кафе" class="img-fluid rounded shadow-sm">
+          </div>
+          <div class="col-lg-6">
+            <h2>О нашем кафе</h2>
+            <p class="lead">Уютная атмосфера и вкусная еда для идеального отдыха</p>
+            <p>Кафе "Аромат" — это не просто место, где можно вкусно поесть. Это особое пространство, где каждая деталь создает атмосферу комфорта и уюта. Мы готовим из лучших ингредиентов, чтобы каждое блюдо было настоящим гастрономическим удовольствием.</p>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-check2-circle text-primary me-2" style="font-size: 1.5rem;"></i>
+                  <span>Свежие продукты</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-check2-circle text-primary me-2" style="font-size: 1.5rem;"></i>
+                  <span>Доставка по городу</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-check2-circle text-primary me-2" style="font-size: 1.5rem;"></i>
+                  <span>Бронирование столиков</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-check2-circle text-primary me-2" style="font-size: 1.5rem;"></i>
+                  <span>Выгодные акции</span>
+                </div>
+              </div>
+            </div>
+            <a href="/about" class="btn btn-outline-primary mt-3">Узнать больше</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Бронирование столика -->
+    <section class="py-5 text-center" style="background-color: #f8f9fa;">
+      <div class="container">
+        <h2 class="mb-4">Забронировать столик</h2>
+        <p class="lead text-muted mb-5">Забронируйте столик заранее, чтобы гарантировать себе место в нашем кафе</p>
+        <a href="/reservation" class="btn btn-lg btn-primary">Перейти к бронированию</a>
+      </div>
+    </section>
+
+    <!-- Отзывы клиентов -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Отзывы наших клиентов</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex mb-3">
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                </div>
+                <p class="card-text">"Прекрасное место для встреч с друзьями. Всегда свежая и вкусная еда, приятная атмосфера. Особенно понравился фирменный десерт!"</p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="images/avatar1.jpg" alt="Аватар клиента" class="rounded-circle me-3" width="40" height="40">
+                  <div>
+                    <h6 class="mb-0">Анна Смирнова</h6>
+                    <small class="text-muted">Постоянный клиент</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex mb-3">
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning"><i class="bi bi-star-half"></i></span>
+                </div>
+                <p class="card-text">"Удобная доставка, всегда вовремя и горячее. Очень понравилось, что можно легко оформить заказ через сайт и отслеживать статус."</p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="images/avatar2.jpg" alt="Аватар клиента" class="rounded-circle me-3" width="40" height="40">
+                  <div>
+                    <h6 class="mb-0">Иван Петров</h6>
+                    <small class="text-muted">Новый клиент</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex mb-3">
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning me-1"><i class="bi bi-star-fill"></i></span>
+                  <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                </div>
+                <p class="card-text">"Недавно праздновали день рождения в этом кафе. Отличное обслуживание, вкусная еда и приятные бонусы для именинника. Всем рекомендую!"</p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="images/avatar3.jpg" alt="Аватар клиента" class="rounded-circle me-3" width="40" height="40">
+                  <div>
+                    <h6 class="mb-0">Мария Козлова</h6>
+                    <small class="text-muted">Постоянный клиент</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контактная информация -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Наши контакты</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="text-center">
+              <i class="bi bi-geo-alt text-primary" style="font-size: 2.5rem;"></i>
+              <h5 class="mt-3">Адрес</h5>
+              <p>г. Москва, ул. Примерная, д. 123</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="text-center">
+              <i class="bi bi-telephone text-primary" style="font-size: 2.5rem;"></i>
+              <h5 class="mt-3">Телефон</h5>
+              <p>+7 (xxx) xxx-xx-xx</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <i class="bi bi-clock text-primary" style="font-size: 2.5rem;"></i>
+              <h5 class="mt-3">Режим работы</h5>
+              <p>Пн-Пт: 10:00 - 22:00<br>Сб-Вс: 11:00 - 23:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="/contact" class="btn btn-outline-primary">Связаться с нами</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Кафе "Аромат"</h5>
+            <p>Уютное место для встреч и отдыха</p>
+            <p><i class="bi bi-geo-alt"></i> Адрес: г. Москва, ул. Примерная, д. 123</p>
+            <p><i class="bi bi-telephone"></i> Телефон: +7 (xxx) xxx-xx-xx</p>
+            <p><i class="bi bi-envelope"></i> Email: info@cafe-aromat.ru</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Режим работы</h5>
+            <p>Понедельник - Пятница: 10:00 - 22:00</p>
+            <p>Суббота - Воскресенье: 11:00 - 23:00</p>
+          </div>
+          <div class="col-md-4">
+            <h5>Следите за нами</h5>
+            <div class="social-links">
+              <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-vk"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="text-center">
+          <p class="mb-0">&copy; 2025 Кафе "Аромат". Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html> 

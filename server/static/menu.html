@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Меню - Кафе "Аромат"</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Кафе "Аромат"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/menu">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Контакты</a>
+            </li>
+            <li class="nav-item" id="auth-links">
+              <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item dropdown" id="user-dropdown" style="display: none;">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> <span id="user-name">Пользователь</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/profile">Личный кабинет</a></li>
+                <li><a class="dropdown-item" href="/orders">История заказов</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="logout-button">Выйти</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="/cart">
+                <i class="bi bi-cart"></i>
+                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <div class="page-header bg-light py-5">
+      <div class="container text-center">
+        <h1 class="display-4">Наше меню</h1>
+        <p class="lead">Исследуйте кулинарные шедевры от наших шеф-поваров</p>
+      </div>
+    </div>
+
+    <!-- Меню -->
+    <section class="menu-section py-5">
+      <div class="container">
+        <h1 class="text-center mb-5">Наше меню</h1>
+        
+        <!-- Фильтр категорий -->
+        <div class="category-filter mb-5 text-center">
+          <button class="btn btn-outline-primary me-2 mb-2 active" data-category="all">Все блюда</button>
+          <button class="btn btn-outline-primary me-2 mb-2" data-category="завтрак">Завтраки</button>
+          <button class="btn btn-outline-primary me-2 mb-2" data-category="суп">Супы</button>
+          <button class="btn btn-outline-primary me-2 mb-2" data-category="основное">Основные блюда</button>
+          <button class="btn btn-outline-primary me-2 mb-2" data-category="десерт">Десерты</button>
+          <button class="btn btn-outline-primary me-2 mb-2" data-category="напиток">Напитки</button>
+        </div>
+        
+        <!-- Контейнер для меню -->
+        <div id="menu-container">
+          <!-- Меню будет загружено динамически через JavaScript -->
+          <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Загрузка...</span>
+            </div>
+            <p>Загрузка меню...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Специальные предложения -->
+    <section class="special-offers py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Специальные предложения</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4>Бизнес-ланч</h4>
+                <p>Понедельник-пятница с 12:00 до 16:00</p>
+                <p>Суп + салат + горячее блюдо + напиток</p>
+                <p class="text-primary fw-bold">Всего за 450 ₽</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4>Семейный ужин</h4>
+                <p>Каждый день с 18:00 до 22:00</p>
+                <p>При заказе 4-х основных блюд, десерт в подарок!</p>
+                <p class="text-primary fw-bold">Акция действует для семей с детьми</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Кафе "Аромат"</h5>
+            <p>Уютное место для встреч и отдыха</p>
+            <p><i class="bi bi-geo-alt"></i> Адрес: г. Москва, ул. Примерная, д. 123</p>
+            <p><i class="bi bi-telephone"></i> Телефон: +7 (xxx) xxx-xx-xx</p>
+            <p><i class="bi bi-envelope"></i> Email: info@cafe-aromat.ru</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Режим работы</h5>
+            <p>Понедельник - Пятница: 10:00 - 22:00</p>
+            <p>Суббота - Воскресенье: 11:00 - 23:00</p>
+          </div>
+          <div class="col-md-4">
+            <h5>Следите за нами</h5>
+            <div class="social-links">
+              <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-vk"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="text-center">
+          <p class="mb-0">&copy; 2025 Кафе "Аромат". Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+      // Класс для работы с корзиной покупок
+      class Cart {
+        constructor() {
+          this.items = [];
+          this.loadFromStorage();
+        }
+        
+        // Загрузка корзины из localStorage
+        loadFromStorage() {
+          const savedCart = localStorage.getItem('cart');
+          if (savedCart) {
+            try {
+              this.items = JSON.parse(savedCart);
+            } catch (e) {
+              console.error('Ошибка при загрузке корзины:', e);
+              this.items = [];
+            }
+          }
+        }
+        
+        // Сохранение корзины в localStorage
+        saveToStorage() {
+          localStorage.setItem('cart', JSON.stringify(this.items));
+          this.updateCartUI();
+        }
+        
+        // Добавление товара в корзину
+        addItem(item, quantity = 1) {
+          // Проверяем, есть ли такой товар уже в корзине
+          const existingItemIndex = this.items.findIndex(i => i.id === item.id);
+          
+          if (existingItemIndex !== -1) {
+            // Если товар уже есть, увеличиваем количество
+            this.items[existingItemIndex].quantity += quantity;
+          } else {
+            // Иначе добавляем новый товар
+            this.items.push({
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              image: item.image || 'images/placeholder.jpg',
+              quantity: quantity
+            });
+          }
+          
+          this.saveToStorage();
+        }
+        
+        // Получение общего количества товаров в корзине
+        getTotalItems() {
+          return this.items.reduce((total, item) => total + item.quantity, 0);
+        }
+        
+        // Обновление UI элементов, связанных с корзиной
+        updateCartUI() {
+          // Обновляем счетчик товаров в корзине
+          const cartCountElem = document.getElementById('cart-count');
+          if (cartCountElem) {
+            const totalItems = this.getTotalItems();
+            cartCountElem.textContent = totalItems;
+            cartCountElem.style.display = totalItems > 0 ? 'inline-block' : 'none';
+          }
+        }
+      }
+      
+      // Функция для отображения всплывающего сообщения
+      function showToast(message) {
+        // Создаем контейнер для уведомлений, если его нет
+        let toastContainer = document.getElementById('toast-container');
+        if (!toastContainer) {
+          toastContainer = document.createElement('div');
+          toastContainer.id = 'toast-container';
+          toastContainer.className = 'position-fixed bottom-0 end-0 p-3';
+          document.body.appendChild(toastContainer);
+        }
+        
+        const toastId = `toast-${Date.now()}`;
+        const toastHtml = `
+          <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <strong class="me-auto">Корзина</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              ${message}
+            </div>
+          </div>
+        `;
+        
+        toastContainer.innerHTML += toastHtml;
+        
+        const toastElement = document.getElementById(toastId);
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        
+        // Автоматически удаляем уведомление после закрытия
+        toastElement.addEventListener('hidden.bs.toast', () => {
+          toastElement.remove();
+        });
+      }
+      
+      // Функция для добавления товара в корзину
+      function addToCart(itemId, name, price, image, quantity = 1) {
+        cart.addItem({
+          id: itemId,
+          name: name,
+          price: price,
+          image: image
+        }, quantity);
+        
+        // Показываем сообщение о добавлении товара
+        showToast(`${name} добавлен в корзину`);
+      }
+      
+      // Добавляем обработчики для кнопок "Добавить в корзину"
+      function setupAddToCartButtons() {
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+          button.addEventListener('click', () => {
+            const itemId = parseInt(button.getAttribute('data-id'));
+            const name = button.getAttribute('data-name');
+            const price = parseFloat(button.getAttribute('data-price'));
+            const image = button.getAttribute('data-image') || 'images/placeholder.jpg';
+            
+            addToCart(itemId, name, price, image);
+          });
+        });
+      }
+      
+      // Простая функция для форматирования категорий
+      function formatCategory(category) {
+        const categoryMap = {
+          'завтрак': 'Завтраки',
+          'суп': 'Супы',
+          'основное': 'Основные блюда',
+          'десерт': 'Десерты',
+          'напиток': 'Напитки',
+          'специальное': 'Специальные предложения'
+        };
+        
+        return categoryMap[category] || category.charAt(0).toUpperCase() + category.slice(1);
+      }
+      
+      // Прямая загрузка меню
+      async function loadMenu() {
+        console.log('Загрузка меню...');
+        const menuContainer = document.getElementById('menu-container');
+        if (!menuContainer) return;
+        
+        try {
+          // Пробуем загрузить данные меню с сервера
+          const response = await fetch('/api/menu');
+          console.log('Статус ответа:', response.status);
+          const data = await response.json();
+          console.log('Данные меню:', data);
+          
+          if (!data.success || !data.data || data.data.length === 0) {
+            console.log('Нет данных о меню, загружаем заглушки');
+            // Если данных нет, создаем тестовое меню
+            const mockData = {
+              success: true,
+              data: [
+                {
+                  id: 1,
+                  name: 'Фирменный борщ',
+                  description: 'Насыщенный ароматный борщ с говядиной, подается со сметаной и пампушками с чесноком.',
+                  price: 350,
+                  category: 'суп',
+                  image: 'images/placeholder.jpg'
+                },
+                {
+                  id: 2,
+                  name: 'Пельмени домашние',
+                  description: 'Сочные домашние пельмени из свинины и говядины, подаются со сметаной.',
+                  price: 420,
+                  category: 'основное',
+                  image: 'images/placeholder.jpg'
+                },
+                {
+                  id: 3,
+                  name: 'Медовик',
+                  description: 'Нежный слоеный торт с медовыми коржами и кремом из сметаны.',
+                  price: 280,
+                  category: 'десерт',
+                  image: 'images/placeholder.jpg'
+                },
+                {
+                  id: 4,
+                  name: 'Омлет с грибами',
+                  description: 'Воздушный омлет с шампиньонами и зеленью.',
+                  price: 290,
+                  category: 'завтрак',
+                  image: 'images/placeholder.jpg'
+                },
+                {
+                  id: 5,
+                  name: 'Латте',
+                  description: 'Кофейный напиток с молоком и молочной пеной.',
+                  price: 180,
+                  category: 'напиток',
+                  image: 'images/placeholder.jpg'
+                }
+              ]
+            };
+            renderMenu(mockData.data);
+            return;
+          }
+          
+          // Отображаем полученные данные
+          renderMenu(data.data);
+          
+        } catch (error) {
+          console.error('Ошибка при загрузке меню:', error);
+          menuContainer.innerHTML = '<p class="text-center">Ошибка при загрузке меню. Попробуйте позже.</p>';
+        }
+      }
+      
+      // Функция отрисовки меню
+      function renderMenu(items) {
+        const menuContainer = document.getElementById('menu-container');
+        if (!menuContainer) return;
+        
+        // Очищаем контейнер
+        menuContainer.innerHTML = '';
+        
+        // Группировка по категориям
+        const categories = {};
+        items.forEach(item => {
+          if (!categories[item.category]) {
+            categories[item.category] = [];
+          }
+          categories[item.category].push(item);
+        });
+        
+        // Вывод блюд по категориям
+        for (const [category, categoryItems] of Object.entries(categories)) {
+          const categorySection = document.createElement('div');
+          categorySection.classList.add('menu-category', 'mb-5');
+          
+          categorySection.innerHTML = `
+            <h3 class="mb-4">${formatCategory(category)}</h3>
+            <div class="row"></div>
+          `;
+          
+          const categoryRow = categorySection.querySelector('.row');
+          
+          // Отрисовываем элементы меню
+          categoryItems.forEach(item => {
+            const col = document.createElement('div');
+            col.classList.add('col-md-4', 'mb-4');
+            
+            col.innerHTML = `
+              <div class="card h-100">
+                <img src="${item.image || 'images/placeholder.jpg'}" class="card-img-top" alt="${item.name}">
+                <div class="card-body">
+                  <h5 class="card-title">${item.name}</h5>
+                  <p class="card-text">${item.description}</p>
+                  <p class="fw-bold">${item.price} ₽</p>
+                  <button class="btn btn-primary add-to-cart-btn" 
+                    data-id="${item.id}" 
+                    data-name="${item.name}" 
+                    data-price="${item.price}"
+                    data-image="${item.image || 'images/placeholder.jpg'}">
+                    В корзину
+                  </button>
+                </div>
+              </div>
+            `;
+            
+            categoryRow.appendChild(col);
+          });
+          
+          menuContainer.appendChild(categorySection);
+        }
+        
+        // Настраиваем фильтрацию после загрузки
+        setupFiltering();
+        
+        // Настраиваем кнопки добавления в корзину
+        setupAddToCartButtons();
+      }
+      
+      // Настройка фильтрации меню
+      function setupFiltering() {
+        const filterButtons = document.querySelectorAll('.category-filter button');
+        
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            // Удаляем класс active у всех кнопок
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Добавляем класс active текущей кнопке
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-category');
+            
+            // Фильтруем блюда по категории
+            const menuCategories = document.querySelectorAll('.menu-category');
+            
+            if (category === 'all') {
+              // Показываем все категории
+              menuCategories.forEach(cat => cat.style.display = 'block');
+            } else {
+              // Показываем только выбранную категорию
+              menuCategories.forEach(cat => {
+                const categoryTitle = cat.querySelector('h3').textContent.toLowerCase();
+                if (categoryTitle.includes(formatCategory(category).toLowerCase())) {
+                  cat.style.display = 'block';
+                } else {
+                  cat.style.display = 'none';
+                }
+              });
+            }
+          });
+        });
+      }
+      
+      // Глобальный экземпляр корзины
+      let cart;
+      
+      // Загружаем меню при загрузке страницы
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM загружен, начинаем загрузку меню...');
+        
+        // Инициализируем корзину
+        cart = new Cart();
+        
+        // Обновляем UI корзины
+        cart.updateCartUI();
+        
+        // Загружаем меню
+        loadMenu();
+      });
+    </script>
+  </body>
+</html> 

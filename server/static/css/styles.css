@@ -1,0 +1,482 @@
+/* Общие стили */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --dark-color: #1a535c;
+    --light-color: #f7fff7;
+    --gray-color: #aaa;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e54b4b;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #e54b4b;
+    border-color: #e54b4b;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Главный баннер */
+.main-banner {
+    background-color: var(--dark-color);
+    padding: 80px 0;
+    margin-bottom: 30px;
+}
+
+/* Навигация */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Карточки */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Меню */
+.menu-categories .nav-link {
+    color: #333;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.menu-categories .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Корзина */
+.cart-item {
+    transition: background-color 0.3s;
+}
+
+.cart-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Формы */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(255, 107, 107, 0.25);
+}
+
+/* Страница профиля */
+.list-group-item.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Модальные окна */
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Спиннер загрузки */
+.spinner-border.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Иконки */
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Отзывы */
+.stars {
+    color: #ffc107;
+}
+
+/* Футер */
+footer {
+    padding: 50px 0 20px;
+}
+
+footer h5 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-banner {
+        padding: 50px 0;
+    }
+    
+    h1.display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-banner {
+        padding: 30px 0;
+    }
+    
+    h1.display-3 {
+        font-size: 2rem;
+    }
+    
+    .card-img-top {
+        height: 160px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* Toast уведомления */
+.toast-container {
+    z-index: 9999;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Бронирование столиков */
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.table-item {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.table-item.available {
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
+}
+
+.table-item.reserved {
+    background-color: #ffebee;
+    border-color: #ffcdd2;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.table-item.selected {
+    background-color: #e3f2fd;
+    border-color: #90caf9;
+}
+
+/* Страница входа/регистрации */
+.auth-tabs .nav-link {
+    color: #555;
+    border-radius: 0;
+    padding: 12px 20px;
+    font-weight: 500;
+}
+
+.auth-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-bottom-color: transparent;
+}
+
+/* Навигационная панель */
+.navbar-dark {
+  background-color: var(--secondary-color) !important;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Секция hero */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  position: relative;
+}
+
+/* Секция с преимуществами */
+.feature-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+/* Секция с популярными блюдами */
+.popular-dishes .card {
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popular-dishes .card:hover {
+  transform: translateY(-5px);
+}
+
+.popular-dishes .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Секция с отзывами */
+.testimonials .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  color: var(--accent-color);
+}
+
+/* Секция бронирования */
+.reservation {
+  background-color: #f9f9f9;
+}
+
+/* Страница меню */
+.menu-nav .nav-link {
+  color: var(--secondary-color);
+  border-radius: 20px;
+  margin: 0 5px;
+}
+
+.menu-nav .nav-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.menu-item {
+  padding: 15px;
+  border-bottom: 1px dashed #ddd;
+  margin-bottom: 15px;
+}
+
+.menu-price {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  white-space: nowrap;
+  margin-left: 15px;
+}
+
+/* Страница О нас */
+.team-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card .card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.achievement {
+  padding: 20px;
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.achievement-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: var(--secondary-color);
+}
+
+.achievement-text {
+  color: #666;
+}
+
+.gallery-img {
+  transition: transform 0.3s ease;
+  margin-bottom: 15px;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* Страница контактов */
+.contact-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.contact-form-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.social-link {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: var(--primary-dark);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.map-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  height: 400px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Заголовок страницы */
+.page-header {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+}
+
+/* Accordion для FAQ */
+.accordion-button:not(.collapsed) {
+  background-color: rgba(176, 107, 79, 0.1);
+  color: var(--primary-color);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(176, 107, 79, 0.25);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .gallery-img {
+    height: 150px;
+  }
+
+  .team-card .card-img-top {
+    height: 200px;
+  }
+}
+
+/* Добавление фонтов */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap'); 

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Личный кабинет - Кафе "Аромат"</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Кафе "Аромат"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Контакты</a>
+            </li>
+            <li class="nav-item" id="auth-links">
+              <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item dropdown" id="user-dropdown" style="display: none;">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> <span id="user-name">Пользователь</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item active" href="/profile">Личный кабинет</a></li>
+                <li><a class="dropdown-item" href="/orders">История заказов</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="logout-button">Выйти</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="/cart">
+                <i class="bi bi-cart"></i>
+                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <div class="page-header bg-light py-5">
+      <div class="container text-center">
+        <h1 class="display-4">Личный кабинет</h1>
+        <p class="lead">Управление профилем и заказами</p>
+      </div>
+    </div>
+
+    <!-- Основной контент -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Боковое меню -->
+          <div class="col-lg-3 mb-4">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action active" data-bs-toggle="list" data-bs-target="#profile-tab">Мой профиль</a>
+              <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="list" data-bs-target="#orders-tab">История заказов</a>
+              <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="list" data-bs-target="#favorites-tab">Избранное</a>
+              <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="list" data-bs-target="#addresses-tab">Адреса доставки</a>
+            </div>
+          </div>
+
+          <!-- Содержимое вкладок -->
+          <div class="col-lg-9">
+            <div class="tab-content">
+              <!-- Профиль -->
+              <div class="tab-pane fade show active" id="profile-tab">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="mb-0">Профиль пользователя</h5>
+                  </div>
+                  <div class="card-body">
+                    <form id="profile-form">
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label for="profile-name" class="form-label">Имя</label>
+                          <input type="text" class="form-control" id="profile-name" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="profile-email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="profile-email" readonly>
+                          <div class="form-text">Email нельзя изменить</div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label for="profile-phone" class="form-label">Телефон</label>
+                          <input type="tel" class="form-control" id="profile-phone">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="profile-birthdate" class="form-label">Дата рождения</label>
+                          <input type="date" class="form-control" id="profile-birthdate">
+                          <div class="form-text">Мы дарим подарки на день рождения!</div>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                      </div>
+                    </form>
+
+                    <hr>
+
+                    <h5 class="mt-4 mb-3">Изменение пароля</h5>
+                    <form id="password-form">
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label for="current-password" class="form-label">Текущий пароль</label>
+                          <input type="password" class="form-control" id="current-password" required>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label for="new-password" class="form-label">Новый пароль</label>
+                          <input type="password" class="form-control" id="new-password" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="confirm-password" class="form-label">Подтверждение пароля</label>
+                          <input type="password" class="form-control" id="confirm-password" required>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Изменить пароль</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- История заказов -->
+              <div class="tab-pane fade" id="orders-tab">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="mb-0">История заказов</h5>
+                  </div>
+                  <div class="card-body">
+                    <div id="order-history">
+                      <!-- История заказов будет загружена динамически через JavaScript -->
+                      <div class="text-center py-4">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Загрузка...</span>
+                        </div>
+                        <p>Загрузка истории заказов...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Избранное -->
+              <div class="tab-pane fade" id="favorites-tab">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="mb-0">Избранные блюда</h5>
+                  </div>
+                  <div class="card-body">
+                    <div id="favorites-list">
+                      <!-- Избранные товары будут загружены динамически через JavaScript -->
+                      <div class="text-center py-4">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Загрузка...</span>
+                        </div>
+                        <p>Загрузка избранных блюд...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Адреса доставки -->
+              <div class="tab-pane fade" id="addresses-tab">
+                <div class="card">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Адреса доставки</h5>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">Добавить адрес</button>
+                  </div>
+                  <div class="card-body">
+                    <div id="addresses-list">
+                      <!-- Адреса будут загружены динамически через JavaScript -->
+                      <div class="text-center py-4">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Загрузка...</span>
+                        </div>
+                        <p>Загрузка адресов доставки...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Модальное окно для добавления адреса -->
+    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addAddressModalLabel">Добавление адреса</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="address-form">
+              <div class="mb-3">
+                <label for="address-title" class="form-label">Название (например, "Дом", "Работа")</label>
+                <input type="text" class="form-control" id="address-title" required>
+              </div>
+              <div class="mb-3">
+                <label for="address-street" class="form-label">Улица, дом</label>
+                <input type="text" class="form-control" id="address-street" required>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="address-city" class="form-label">Город</label>
+                  <input type="text" class="form-control" id="address-city" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="address-postal" class="form-label">Индекс</label>
+                  <input type="text" class="form-control" id="address-postal">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="address-notes" class="form-label">Примечания</label>
+                <textarea class="form-control" id="address-notes" rows="2" placeholder="Подъезд, этаж, код домофона и т.д."></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="button" class="btn btn-primary" id="save-address-btn">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Кафе "Аромат"</h5>
+            <p>Уютное место для встреч и отдыха</p>
+            <p><i class="bi bi-geo-alt"></i> Адрес: г. Москва, ул. Примерная, д. 123</p>
+            <p><i class="bi bi-telephone"></i> Телефон: +7 (xxx) xxx-xx-xx</p>
+            <p><i class="bi bi-envelope"></i> Email: info@cafe-aromat.ru</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Режим работы</h5>
+            <p>Понедельник - Пятница: 10:00 - 22:00</p>
+            <p>Суббота - Воскресенье: 11:00 - 23:00</p>
+          </div>
+          <div class="col-md-4">
+            <h5>Следите за нами</h5>
+            <div class="social-links">
+              <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-vk"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="text-center">
+          <p class="mb-0">&copy; 2025 Кафе "Аромат". Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/order.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html> 

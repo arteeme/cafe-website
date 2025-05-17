@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Оформление заказа - Кафе "Аромат"</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Кафе "Аромат"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Контакты</a>
+            </li>
+            <li class="nav-item" id="auth-links">
+              <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item dropdown" id="user-dropdown" style="display: none;">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> <span id="user-name">Пользователь</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/profile">Личный кабинет</a></li>
+                <li><a class="dropdown-item" href="/orders">История заказов</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="logout-button">Выйти</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="/cart">
+                <i class="bi bi-cart"></i>
+                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <div class="page-header bg-light py-5">
+      <div class="container text-center">
+        <h1 class="display-4">Оформление заказа</h1>
+        <p class="lead">Заполните информацию для доставки вашего заказа</p>
+      </div>
+    </div>
+
+    <!-- Форма оформления заказа -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Форма данных для доставки -->
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h5 class="mb-0">Данные для заказа</h5>
+              </div>
+              <div class="card-body">
+                <form id="checkout-form">
+                  <!-- Тип заказа -->
+                  <div class="mb-4">
+                    <h6>Тип заказа</h6>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="order_type" id="delivery" value="доставка" checked>
+                      <label class="form-check-label" for="delivery">
+                        Доставка
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="order_type" id="pickup" value="самовывоз">
+                      <label class="form-check-label" for="pickup">
+                        Самовывоз (скидка 10%)
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Адрес доставки -->
+                  <div class="mb-4" id="delivery-address-block">
+                    <h6>Адрес доставки</h6>
+                    <div class="mb-3">
+                      <label for="address" class="form-label">Полный адрес</label>
+                      <input type="text" class="form-control" id="address" placeholder="Город, улица, дом, квартира" required>
+                    </div>
+                  </div>
+
+                  <!-- Контактные данные -->
+                  <div class="mb-4">
+                    <h6>Контактные данные</h6>
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Имя</label>
+                      <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Телефон</label>
+                      <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                  </div>
+
+                  <!-- Способ оплаты -->
+                  <div class="mb-4">
+                    <h6>Способ оплаты</h6>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="payment_method" id="cash" value="наличные" checked>
+                      <label class="form-check-label" for="cash">
+                        Наличными при получении
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="payment_method" id="card" value="картой при получении">
+                      <label class="form-check-label" for="card">
+                        Картой при получении
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="payment_method" id="online" value="онлайн">
+                      <label class="form-check-label" for="online">
+                        Онлайн оплата (скоро)
+                      </label>
+                      <div class="form-text">Эта опция станет доступна в ближайшее время</div>
+                    </div>
+                  </div>
+
+                  <!-- Комментарий к заказу -->
+                  <div class="mb-4">
+                    <h6>Комментарий к заказу</h6>
+                    <textarea class="form-control" id="comment" rows="3" placeholder="Особые пожелания к заказу или доставке"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-lg">Оформить заказ</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Сводка заказа -->
+          <div class="col-lg-4">
+            <div class="card sticky-top" style="top: 100px;">
+              <div class="card-header">
+                <h5 class="mb-0">Ваш заказ</h5>
+              </div>
+              <div class="card-body">
+                <div id="order-summary">
+                  <!-- Сводка заказа будет загружена динамически через JavaScript -->
+                  <div class="text-center py-4">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Загрузка...</span>
+                    </div>
+                    <p>Загрузка данных заказа...</p>
+                  </div>
+                </div>
+
+                <!-- Форма для промокода -->
+                <div class="mt-3">
+                  <form id="promo-form">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="promo-code" placeholder="Промокод">
+                      <button class="btn btn-outline-secondary" type="submit">Применить</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Кафе "Аромат"</h5>
+            <p>Уютное место для встреч и отдыха</p>
+            <p><i class="bi bi-geo-alt"></i> Адрес: г. Москва, ул. Примерная, д. 123</p>
+            <p><i class="bi bi-telephone"></i> Телефон: +7 (xxx) xxx-xx-xx</p>
+            <p><i class="bi bi-envelope"></i> Email: info@cafe-aromat.ru</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Режим работы</h5>
+            <p>Понедельник - Пятница: 10:00 - 22:00</p>
+            <p>Суббота - Воскресенье: 11:00 - 23:00</p>
+          </div>
+          <div class="col-md-4">
+            <h5>Следите за нами</h5>
+            <div class="social-links">
+              <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-white me-2"><i class="bi bi-vk"></i></a>
+              <a href="#" class="text-white"><i class="bi bi-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="text-center">
+          <p class="mb-0">&copy; 2025 Кафе "Аромат". Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/order.js"></script>
+  </body>
+</html> 
